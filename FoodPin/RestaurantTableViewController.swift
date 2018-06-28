@@ -52,7 +52,7 @@ class RestaurantTableViewController: UITableViewController {
         cell.thumbnailImageView?.image = UIImage(named: restaurantImages[indexPath.row])
         cell.locationLabel.text = restaurantLocations[indexPath.row]
         cell.typeLabel.text = restaurantTypes[indexPath.row]
-        
+        print(cell.locationLabel.font)
         // Configure the cell...
 
         return cell
