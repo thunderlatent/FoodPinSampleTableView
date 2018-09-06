@@ -57,7 +57,22 @@ class RestaurantTableViewController: UITableViewController {
 
         return cell
     }
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let optionMenu = UIAlertController(title: nil, message: "What do you want to do?", preferredStyle: .actionSheet)
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
+        let OKAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        let callAction = UIAlertAction(title: "Call 123-\(indexPath.row)", style: .default) { (UIAlertAction) in
+            let alertMessage = UIAlertController(title: "無法通話", message: "號碼有問題", preferredStyle: .alert)
+            alertMessage.addAction(OKAction)
+            self.present(alertMessage, animated: true, completion: nil)
+        }
+            
+        
+        optionMenu.addAction(cancelAction)
+        optionMenu.addAction(callAction)
     
+        present(optionMenu, animated: true, completion: nil)
+    }
 
     /*
     // Override to support conditional editing of the table view.
